@@ -7,3 +7,32 @@ def getSum(root):
     rightnode = getSum(root.right)
     return root.data + leftnode + rightnode
 
+################## Preorder Binary Tree
+def preOrder(root):
+    if root == None:
+        return
+    
+    print(root.data,end = " ")
+    leftnode = preOrder(root.left)
+    rightnode = preOrder(root.right)
+    return 
+    
+    
+################## Postorder Binary Tree
+def postOrder(root):
+    if root == None:
+        return
+    leftnode = postOrder(root.left)
+    rightnode = postOrder(root.right)
+    print(root.data,end=" ")
+    return
+    
+    ###########largest node in tree
+def Largest(root):
+    if root == None:
+        return
+    leftnode = Largest(root.left)
+    rightnode = Largest(root.right)
+    maximum = max(root.data + leftnode + rightnode)
+    return maximum
+    
