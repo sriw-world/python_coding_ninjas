@@ -1,1 +1,9 @@
+######################sum of nodes of binary tree
+
+def getSum(root):
+    if root == None:
+        return 0
+    leftnode = getSum(root.left)
+    rightnode = getSum(root.right)
+    return root.data + leftnode + rightnode
 
