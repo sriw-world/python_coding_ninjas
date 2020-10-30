@@ -1,1 +1,30 @@
+################# Removing Leaf Node
+def removeleaf(root):
+  if root == None:
+    return None
+    
+  if root.left == None and root.right == None:
+    return None
+    
+  root.left = removeleaf(root.left)
+  root.right = removeleaf(root.right)
+  
+  return root
+  
+###########mirror binary tree
+
+  def mirrorBinaryTree(root) :
+    
+    if root == None:
+        return None
+    
+    mirrorBinaryTree(root.left)
+    mirrorBinaryTree(root.right) 
+    
+    tmp = root.left
+    root.left = root.right
+    root.right = tmp
+    
+
+##########Binary Tree Is Balanced
 
