@@ -126,7 +126,69 @@ def printLevelWise(root):
             print("R:"+""+"-1",end="")        
         print()
 
+########################Construct Tree Using Inorder and Preorder
 
+def buildTreePreOrder(preorder, inorder):
+    if len(preorder) == 0:
+        return None
+        
+        ##gind root
+    rootData = preorder[0]
+    root = BinaryTreeNode(rootData)
+    i=0
+    ## inorder
+    while i < len(inorder) :
+        if inorder[i] == rootData:
+            leftin=inorder[0:i]
+            rightin=inorder[i+1:]
+        i += 1
+    l= len(leftin)
+    ##preorder
+    Lpre= preorder[1:l+1]
+    Rpre= preorder[l+1:]
+    leftSub= buildTreePreOrder(Lpre,leftin)
+    rightSub= buildTreePreOrder(Rpre,rightin)
+    
+    # connect 
+    root.left=leftSub
+    root.right=rightSub
+    return root
+ 
 
+################################### Construct Tree Using Inorder and postorder
 
-
+def buildTree(postOrder, inOrder, n) :
+    if len(postOrder) == 0 :
+        return None
+        
+        ##Find root data
+    rootdata = postOrder[-1]
+    root = BinaryTreeNode(rootdata)
+        ###Find location in inorder
+    rootdataindex = -1
+    for i in range(len(inOrder)):
+        if inOrder[i] == rootdata:
+            rootdataindex = i
+            break
+                
+    if rootdataindex == -1:
+        return None
+        
+        #Find inorder
+    leftinorder = inOrder[:rootdataindex]
+    rightinorder = inOrder[rootdataindex+1:]
+        
+    lengthleftinorder = len(leftinorder)
+        
+        #find postorder
+    leftpostorder = postOrder[:lengthleftinorder]
+    rightpostorder = postOrder[lengthleftinorder:-1]
+        
+    leftchild = buildTree(leftpostorder, leftinorder, n)
+    rightchild = buildTree(rightpostorder, rightinorder, n)
+        
+    root.left = leftchild
+    root.right = rightchild
+        
+    return root
+        
