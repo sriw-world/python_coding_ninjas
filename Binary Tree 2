@@ -192,3 +192,19 @@ def buildTree(postOrder, inOrder, n) :
         
     return root
         
+################Create & Insert Duplicate Node
+
+def insertDuplicateNode(root):
+    if root  == None:
+        return None
+    
+    addrleft = root.left
+    
+    data = root.data
+    newnode = BinaryTreeNode(data)
+    root.left = newnode
+    
+    newnode.left = addrleft
+    insertDuplicateNode(newnode.left)
+    insertDuplicateNode(root.right)
+
