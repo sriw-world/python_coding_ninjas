@@ -211,6 +211,10 @@ def insertDuplicateNode(root):
 
 ###########Minimum and Maximum in the Binary Tree
 
+
+MIN_VALUE = -9999999999
+MAX_VALUE = 9999999999
+
 def getMinAndMax(root) :
     minimum,maximum=INT_MAX,INT_MIN
     if root ==None:
@@ -221,3 +225,28 @@ def getMinAndMax(root) :
     maximum=max(root.data,leftmax,rightmax)
     return minimum,maximum
 
+
+
+################ Level order traversal
+def printLevelATNewLine(root):
+    q = queue.Queue()
+    if root == None:
+        return None
+    
+    q.put(root)
+    q.put(None)
+    while not q.empty():
+        p = q.get()
+        if p == None:
+            print()
+            if q.empty():
+                break
+            q.put(None)
+        else:
+            print(p.data , end = " ")
+            if p.left != None:
+                q.put(p.left)
+            if p.right != None:
+                q.put(p.right)
+
+                          
