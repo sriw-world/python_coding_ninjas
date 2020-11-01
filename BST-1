@@ -1,0 +1,14 @@
+###########Search In BST
+
+def searchInBST(root, k):
+    if root == None:
+        return False
+    if k==root.data:
+        return True
+    if k<=root.data:
+        return searchInBST(root.left, k)
+    elif k>root.data:
+        return searchInBST(root.right, k)
+     
+     
+     
