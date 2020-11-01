@@ -282,3 +282,42 @@ class Solution:
             return False
                 
   
+######### Print nodes at distance k from node  
+  
+def nodesAtDistanceKHelper(root, target, k) :
+    if root is None :
+        return -1
+    if root.data == target :
+        nodesAtDistanceKDown(root, k)
+        return 0
+
+    leftD = nodesAtDistanceKHelper(root.left, target, k)
+    if leftD != -1 :
+        if (leftD + 1) == k :
+            print(root.data)
+        else :
+            nodesAtDistanceKDown(root.right, k - leftD - 2)
+        return 1 + leftD
+
+    rightD = nodesAtDistanceKHelper(root.right, target, k);
+    if rightD != -1 :
+        if (rightD + 1) == k :
+            print(root.data)
+        else :
+            nodesAtDistanceKDown(root.left, k - rightD - 2)
+        return 1 + rightD
+    return -1
+
+def nodesAtDistanceKDown(root, k) :
+    if root is None : 
+        return
+    if k == 0 :
+        print(root.data)
+        return
+    nodesAtDistanceKDown(root.left, k - 1)
+    nodesAtDistanceKDown(root.right, k - 1)
+
+def nodesAtDistanceK(root, node, k) :
+    nodesAtDistanceKHelper(root, node, k)
+
+
