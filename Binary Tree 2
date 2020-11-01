@@ -261,4 +261,24 @@ def rootToLeafPathsSumToK(root, k, lst):
     rootToLeafPathsSumToK(root.left,k-root.data,lst)
     rootToLeafPathsSumToK(root.right,k-root.data,lst)
     lst.pop()
-                       
+         
+  
+  ##########has sum or not
+class Solution:
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if root == None:
+            return False
+        
+        if root.left is None and root.right is None:
+            if root.val==sum:
+                return True
+        
+        left = self.hasPathSum(root.left,sum-root.val)
+        right = self.hasPathSum(root.right,sum-root.val)
+        
+        if left or right:
+            return True
+        else:
+            return False
+                
+  
