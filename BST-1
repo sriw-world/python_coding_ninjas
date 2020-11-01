@@ -52,5 +52,62 @@ def constructBST(lst):
     
     
     ############check bst
+    
+     O(n^2)
+     
+     
+    INT_MAX = 999999999
+    INT_MIN = -999999999
+    
+    def maximun(root):
+        if root==None:
+            return INT_MIN
+        left = maxmin(root.left)
+        right = maxmin(root.right)
+        return max(root.data,left,right) 
+        
+        
+    def minimum(root):
+        if root==None:
+            return INT_MAX
+        left = maxmin(root.left)
+        right = maxmin(root.right)
+        return  min(root.data,left,right)
+        
+    
+    def checkbst(root):
+        if root==None:
+            return True
+        leftmax = maximum(root.left)
+        rightmin = minimum(root.right)
+        if root.data > rightmax and root.data < leftmin:
+            return False
+            
+        left = checkbst(root.left)
+        right = chectbst(root.right)
+        
+        return left and right
+        
+            
+        
+def  checkbst(root):
+    if root == None:
+        return -9999999,999999,True
+    
+    maxleft,minleft,leftbst= checkbst(root.left)
+    maxright,minright,rightbst= checkbst(root.right)
+    
+    isTreeBST = True
+    minimum = min(root.data,minleft,minright)
+    maximum = max(root.data,maxleft,maxright)
+    
+    if root.data > rightmax and root.data < leftmin:
+        isTreeBST = False
+    if not(leftbst) and not(leftbst):
+        isTreeBST = False
+    
+    return maximum,minimum,isTreeBST
+    
+    
  
 
