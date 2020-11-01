@@ -110,4 +110,16 @@ def  checkbst(root):
     
     
  
+ def checkbst(root,minrange,maxrange):
+    if root==None:
+        return True
+    
+    if root.data < minrange and root.data>maxrange:
+        return False
+        
+    leftcons=checkbst(root.left,minrange,root.data-1)
+    rightcons=checkbst(root.left,root.data,maxrange)
+    
+    return leftcons and rightcons
+    
 
