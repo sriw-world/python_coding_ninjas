@@ -13,5 +13,44 @@ def searchInBST(root, k):
      
 ############ Print Elements In Range K1 and K2
 
+def elementsInRangeK1K2(root, k1, k2):
+    
+    if root == None:
+        return 
+    if root.data > k2:
+        elementsInRangeK1K2(root.left, k1, k2)
+    elif root.data < k1:
+        elementsInRangeK1K2(root.right, k1, k2)
+    else:
+        elementsInRangeK1K2(root.left, k1, k2)
+        print(root.data,end = " ")
+        elementsInRangeK1K2(root.right, k1, k2)
+        
 
-     
+
+
+
+############construct bst
+
+def constructBST(lst):
+    if len(lst)==0:
+        return None
+    if len(lst)%2!=0:
+        mid  = len(lst)//2
+    else:
+        mid  = len(lst)//2-1
+    root = BinaryTreeNode(lst[mid])
+    
+    left = constructBST(lst[:mid])
+    right = constructBST(lst[mid+1:])
+    
+    root.left = left
+    root.right = right
+
+    return root
+    
+    
+    
+    ############check bst
+ 
+
