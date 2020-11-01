@@ -208,3 +208,16 @@ def insertDuplicateNode(root):
     insertDuplicateNode(newnode.left)
     insertDuplicateNode(root.right)
 
+
+###########Minimum and Maximum in the Binary Tree
+
+def getMinAndMax(root) :
+    minimum,maximum=INT_MAX,INT_MIN
+    if root ==None:
+        return minimum,maximum
+    leftmin,leftmax=getMinAndMax(root.left)
+    rightmin,rightmax=getMinAndMax(root.right)
+    minimum=min(root.data,leftmin,rightmin)
+    maximum=max(root.data,leftmax,rightmax)
+    return minimum,maximum
+
