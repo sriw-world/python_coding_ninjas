@@ -1,0 +1,45 @@
+############# Print Tree
+def printtree(root):
+  ####edge cae
+  if root==None:
+    return
+  print(root.data)
+  #####if no child no execution of for loop so no base case reqd
+  for child in root.children:  
+    printtree(child)
+
+
+
+def printtree(root):
+  ####edge cae
+  if root==None:
+    return
+  print(root.data,":",end="")
+  for child in root.children:  
+    printtree(child.data,",",end="")
+   
+   print()
+  #####if no child no execution of for loop so no base case reqd
+  for child in root.children:  
+    printtree(child)
+
+#################Taking input in Generic Tree
+def takeTreeInput(root):
+  print("Enter root data")
+  rootdata=int(input())
+  if rootdata == -1:
+    return None
+    
+  root =  Treenode(rootdata)
+  print("Enter no of children for ",rootdata)
+  childcount = int(input())
+  for i in range(childcount):
+    child = taketreeinput()
+    root.children.append(child)
+  return root
+  
+  
+  
+  
+  
+  
