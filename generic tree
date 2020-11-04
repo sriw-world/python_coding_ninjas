@@ -179,10 +179,25 @@ def leafNodeCount(tree):
     return maxnode,maxsum
                     
 
-
+####################### Structurally identical
   
   
-  
+  def isIdentical(tree1, tree2):
+    if tree1 == None and tree2 == None:
+        return True
+    
+    if len(tree1.children) != len(tree2.children):
+        return False
+    
+    for child1,child2 in zip(tree1.children,tree2.children):
+        if child1.data != child2.data:
+            return False
+            
+    for child1,child2 in zip(tree1.children,tree2.children):
+        out = isIdentical(child1,child2)
+        if out == False:
+            return False
+    return True
 
 
 
