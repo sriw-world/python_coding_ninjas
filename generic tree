@@ -69,7 +69,17 @@ def sumofNodes(tree):
     return sum
     
     
+    #################height of a generic tree
     
+    def height(root):
+    if root == None:
+        return 0
+    ht = 0
+    for child in root.children:
+        ht = max(ht,height(child))
+    
+    return 1 + ht
+
     
     
     ############ Node With Largest Data
@@ -81,6 +91,58 @@ def sumofNodes(tree):
     for child in tree.children:
         maxm = max(maxm,maxDataNode(child))
     return maxm
+
+
+#########Take input level wise
+
+import queue
+def taketreeinputlevelwise():
+  q=queue.Queue()
+  print("Enter root")
+  rootdata=int(input())
+  if rootdata ==-1:
+    return None
+  
+  root= TreeNode(rootdata)
+  q.put(root)
+  while not q.empty():
+    curr_node = q.get()
+    print("Enter no of children for ",curr_node.data)
+    noofchildren = int(input())
+    for i in  range(noofchildren):
+      print("Enter child of",curr_node.data)
+      childdata = int(input())
+      child = TreeNode(childdata)
+      curr_node.children.append(child)
+      q.put(child)
+      
+      
+      
+###########contains X
+
+def containsX(tree, x):
+    
+    if tree == None:
+        return False
+    if tree.data == x:
+        return True
+    
+    for child in tree.children:
+        out = containsX(child, x)
+        if out == True:
+            return out
+    
+    return False
+        
+        
+        #################
+        
+    
+      
+      
+  
+  
+  
 
 
 
