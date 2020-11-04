@@ -73,5 +73,15 @@ def sumofNodes(tree):
     
     
     ############ Node With Largest Data
-    
+    def maxDataNode(tree):
+    maxnode = -1
+    if tree == None:
+        return -1
+    maxm = tree.data
+    for child in tree.children:
+        maxm = max(maxm,maxDataNode(child))
+    return maxm
+
+
+
     
