@@ -41,5 +41,37 @@ def takeTreeInput(root):
   
   
   
+  ############ No of nodes in generic tree
   
+  def numnodes(root):
+    count = 0
+    ### Edge case when no root is  passed
+    if root == None:
+      return count
+    count += 1
+    for child in root.children:
+      count += numnodes(child)
+      
+    return count 
   
+  ############### Sum of all nodes
+  
+def sumofNodes(tree):
+    sum = 0
+    if tree == None:
+        return sum
+    
+    sum += tree.data
+    
+    for child in tree.children:
+        sum += sumofNodes(child)
+    
+    return sum
+    
+    
+    
+    
+    
+    ############ Node With Largest Data
+    
+    
