@@ -8,7 +8,7 @@ def printtree(root):
   for child in root.children:  
     printtree(child)
 
-
+#########print tree level wise
 
 def printtree(root):
   ####edge cae
@@ -135,11 +135,25 @@ def containsX(tree, x):
     return False
         
         
-        #################
-        
+################# No of leaf Node       
     
       
-      
+def leafNodeCount(tree):
+    if tree == None:
+        return 0
+    
+    if len(tree.children)==0:
+        return 1
+    
+    leaf = 0
+    
+    for child in tree.children:
+        leaf  += leafNodeCount(child)
+    
+    return leaf
+    
+    
+
   
   
   
