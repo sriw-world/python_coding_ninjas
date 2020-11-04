@@ -153,6 +153,32 @@ def leafNodeCount(tree):
     return leaf
     
     
+    
+    ##################  Node with maximum child sum
+    
+    def maxSumNode(tree):
+    
+    if tree == None:
+        return None,0
+
+    rootchildsum = tree.data
+    
+    for child in tree.children:
+        rootchildsum += child.data
+    
+    maxsum = rootchildsum
+    maxnode = tree
+    
+    for child in tree.children:
+        node,sum = maxSumNode(child)
+        
+        if sum > rootchildsum:
+            maxsum = sum
+            maxnode = node
+    
+    return maxnode,maxsum
+                    
+
 
   
   
