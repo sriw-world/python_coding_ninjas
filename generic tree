@@ -120,6 +120,25 @@ def taketreeinputlevelwise():
       
 ###########contains X
 
+Given a generic tree and an integer x, check if x is present in the given tree or not. Return true if x is present, return false otherwise.
+Input format :
+Line 1 : Integer x
+Line 2 : Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Output format :
+true or false
+Sample Input 1 :
+40
+10 3 20 30 40 2 40 50 0 0 0 0 
+Sample Output 1 :
+true
+Sample Input 2 :
+4
+10 3 20 30 40 2 40 50 0 0 0 0 
+Sample Output 2:
+false
+
+
 def containsX(tree, x):
     
     if tree == None:
@@ -136,7 +155,18 @@ def containsX(tree, x):
         
         
 ################# No of leaf Node       
-    
+
+Given a generic tree, count and return the number of leaf nodes present in the given tree.
+Input format :
+Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Output Format :
+Count of leaf nodes
+Sample Input 1 :
+10 3 20 30 40 2 40 50 0 0 0 0 
+Sample Output 1 :
+4
+
       
 def leafNodeCount(tree):
     if tree == None:
@@ -156,6 +186,18 @@ def leafNodeCount(tree):
     
     ##################  Node with maximum child sum
     
+    Given a tree, find and return the node for which sum of data of all children and the node itself is maximum. In the sum, data of node itself and data of immediate children is to be taken.
+Input format :
+Line 1 : Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Output format :
+Node with maximum sum.
+Sample Input 1 :
+5 3 1 2 3 1 15 2 4 5 1 6 0 0 0 0
+Sample Output 1 :
+1
+
+
     def maxSumNode(tree):
     
     if tree == None:
@@ -181,6 +223,25 @@ def leafNodeCount(tree):
 
 ####################### Structurally identical
   
+  Given two Generic trees, return true if they are structurally identical i.e. they are made of nodes with the same values arranged in the same way.
+Input format :
+Line 1 : Tree 1 elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Line 2 : Tree 2 elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Output format :
+true or false
+Sample Input 1 :
+10 3 20 30 40 2 40 50 0 0 0 0 
+10 3 20 30 40 2 40 50 0 0 0 0
+Sample Output 1 :
+true
+Sample Input 2 :
+10 3 20 30 40 2 40 50 0 0 0 0 
+10 3 2 30 40 2 40 50 0 0 0 0
+Sample Output 2:
+false
+  
   
   def isIdentical(tree1, tree2):
     if tree1 == None and tree2 == None:
@@ -199,6 +260,49 @@ def leafNodeCount(tree):
             return False
     return True
 
+########Replace with depth
+
+In a given Generic Tree, replace each node with its depth value. You need to just update the data of each node, no need to return or print anything.
+Input format :
+Line 1 : Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Sample Input 1 :
+10 3 20 30 40 2 40 50 0 0 0 0 
+Sample Output 1 : (Level wise, each level in new line)
+0 
+1 1 1 
+2 2
+
+def replacewithDepth(tree,i):
+    if tree == None:
+        return
+    
+    tree.data = i
+    
+    for child in tree.children:
+        replacewithDepth(child,i+1)
 
 
+
+
+Next larger
+Send Feedback
+Given a generic tree and an integer n. Find and return the node with next larger element in the Tree i.e. find a node with value just greater than n.
+Return NULL if no node is present with the value greater than n.
+Input Format :
+Line 1 : Integer n
+Line 2 : Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Output Format :
+Node with value just greater than n.
+Sample Input 1 :
+18
+10 3 20 30 40 2 40 50 0 0 0 0 
+Sample Output 1 :
+20
+Sample Input 2 :
+21
+10 3 20 30 40 2 40 50 0 0 0 0 
+Sample Output 2:
+30
     
