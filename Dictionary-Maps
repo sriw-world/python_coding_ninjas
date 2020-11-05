@@ -11,4 +11,18 @@ def kfreqwords(s,k):
       print(word)
       
       
+######## Maximum Frequency
+
+def maxFreq(l):
+    d={}
+    for i in l:
+        d[i] = d.get(i,0) +1
+    max=l[0]
+    for i in l:
+        if d[max] < d[i]:
+            max=i
+    return max
+
+      
+      
       
