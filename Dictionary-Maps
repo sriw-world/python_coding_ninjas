@@ -33,4 +33,21 @@ def maxFreq(l):
       
 #### Pair Sum To 0
       
-      
+def pairSum0(l):
+    l.sort()
+    d={}
+    for i in l:
+        d[i] = d.get(i,0) +1
+        
+    for  i in l:
+        if i==0:
+            for j in range(d[i]):
+                print(i,i)
+            d[i]=0        
+        elif -i in l:
+            freq = d[i]*d[-i]
+            for j in range(freq):
+                print(i,-i)
+            
+            d[i],d[-i]=0,0
+    
