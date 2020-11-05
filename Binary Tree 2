@@ -338,3 +338,25 @@ def identicalTrees(a, b):
       
     # 3. one empty, one not -- false 
     return False
+    
+    
+    
+    
+    
+    
+def printLevelWiseTree(tree):
+    q1=queue.Queue()
+    q2=queue.Queue()
+    q1.put(tree)
+    while not q1.empty():
+        while not q1.empty():
+            parent=q1.get()
+            print(parent.data,end=':')
+            for i in range(len(parent.children)):
+                if i==len(parent.children)-1:
+                    print(parent.children[i],end='')
+                else:
+                    print(parent.children[i],end=',')
+                q2.put(parent.children[i])
+            print()
+        q1,q2=q2,q1
