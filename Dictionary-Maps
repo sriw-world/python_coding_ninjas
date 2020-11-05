@@ -1,1 +1,14 @@
 
+########### Print all words with frequency k
+def kfreqwords(s,k):
+  words=s.split()
+  d={}
+  for word in words:
+    d[word]=d.get(word,0) + 1
+    
+  for word in d:
+    if d[word]==k:
+      print(word)
+      
+      
+      
