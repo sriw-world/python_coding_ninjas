@@ -317,3 +317,68 @@ for i in range(10):
 
 for i in range(10):
     print("abc" + str(i) + ":" , m.getValue('abc'+str(i)))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    Extract Unique characters
+Send Feedback
+Given a string, you need to remove all the duplicates. That means, the output string should contain each character only once. The respective order of characters should remain same.
+Input format :
+String S
+Output format :
+Output String
+Constraints :
+0 <= Length of S <= 10^8
+Sample Input 1 :
+ababacd
+Sample Output 1 :
+abcd
+Sample Input 2 :
+abcde
+Sample Output 2 :
+abcde
+
+
+1------------
+
+def uniqueChars(string):
+    d = ""
+    for i in string:
+        if i not in d:
+            d += i
+    return d
+    
+# Main
+string = input()
+print(uniqueChars(string))
+
+2----------------
+
+# characters of a string. 
+NO_OF_CHARS = 256
+
+def printDistinct(str): 
+  
+    # Create an array of size 256 and  
+    # count of every character in it 
+    count = [0] * NO_OF_CHARS 
+  
+    # Count array with frequency of  
+    # characters  
+    for i in range (len(str)): 
+        if(str[i] != ' '): 
+            count[ord(str[i])] += 1
+    n = i 
+    # Print characters having count  
+    # more than 0 
+    for i in range(n): 
+        if (count[ord(str[i])] == 1): 
+            print (str[i], end = "") 
+            
+            
