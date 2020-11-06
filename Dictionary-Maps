@@ -50,4 +50,150 @@ def pairSum0(l):
                 print(i,-i)
             
             d[i],d[-i]=0,0
+            
+            
+            
+################### How to insert in Map
+each index has a Linked List
+
+class MapNode:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.next = None
+        
+class Map:
+  
+    def __init__(self):
+        self.bucketSize = 10
+        self.buckets = [None for i in range(self.bucketSize)]
+        self.count = 0
+        
+    def size(self):
+        return self.count
+        
+    def getBucketIndex(self, hc):
+      return abs(hc)%self.bucketSize
+      
+    def insert(self, key, value):   # First task is to find the index
+                                    # At the index, if same key is present then change the corresponding value of it
+    # If same key is not present then create a new Node, make newNode.next = head, self.buckets[index] = newNode and 
+    # increment the count of that bucket
+    
+    hc = hash(key)
+    index = getBucketIndex(hc)
+    head = self.buckets[index]
+    
+    while head is not None:
+        if head.key == key:
+            head.value = value
+            return
+        head = head.next
+    
+    newNode = MapNode(key,value)
+    self.buckets[index] = newNode
+    newNode.next = head
+    self.count += 1
+    
+    
+    
+    
+    
+m = Map()
+m.insert('Sar', 2)
+print(m.size())
+m.insert('Sam', 7)
+print(m.size())
+m.insert('Sar', 4)  # It hasn't inserted the new node of key 'Fazeel' instead it just changed the value for of that key
+print(m.size())
+
+
+O/P
+1
+2
+2
+    
+    
+############ Insert and delete in hash map
+
+class MapNode:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.next = None
+        
+class Map:
+    def __init__(self):
+        self.bucketSize = 10
+        self.buckets = [None for i in range(self.bucketSize)]
+        self.count = 0
+        
+    def size(self):
+        return self.count
+    
+    def getBucketIndex(self,hc):
+        return (abs(hc)%(self.bucketSize))
+    
+    def insert(self, key, value):
+        hc = hash(key)
+        index = self.getBucketIndex(hc)
+        head = self.buckets[index]
+        while head is not None:
+            if head.key == key:
+                head.value = value
+                return 
+            head = head.next
+        
+        # After iterating the LL make head pointing at buckets
+        head = self.buckets[index] 
+        newNode = MapNode(key, value)
+        newNode.next = head
+        self.buckets[index] = newNode
+        self.count += 1
+    
+    def search(self.key):
+    
+        hc = hash(key)
+        index = self.getBucketIndex(hc)
+        head = self.buckets[index]
+        while head is not None:
+            if head.key == key:
+                return head.value
+                return 
+            head = head.next
+            
+        return None
+        
+    def delete(self.key):
+  
+        hc = hash(key)
+        index = self.getBucketIndex(hc)
+        head = self.buckets[index]
+        prev = None
+        while head is not None:
+            curr = head
+            if head.key == key:
+                if prev == None:
+                    self.buckets[index] = head.next
+                    return
+                else:
+                    prev.next = head.next
+                
+                self.count -= 1
+                return head.value            
+            prev = head
+            head = head.next
+            
+        return None
+            
+            
+        
+    
+    
+        
+        
+        
+    
+    
+
     
