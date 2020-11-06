@@ -19,6 +19,28 @@ def kfreqwords(s,k):
       
 ######## Maximum Frequency
 
+Maximum Frequency
+Send Feedback
+You are given an array of integers that contain numbers in random order. Write a program to find and return the number which occurs the maximum times in the given input.
+If two or more elements contend for the maximum frequency, return the element which occurs in the array first.
+Input Format :
+Line 1 : An Integer N i.e. size of array
+Line 2 : N integers which are elements of the array, separated by spaces
+Output Format :
+Most frequent element
+Constraints :
+0 <= N <= 10^8
+Sample Input 1 :
+13
+2 12 2 11 12 2 1 2 2 11 12 2 6 
+Sample Output 1 :
+2
+Sample Input 2 :
+3
+1 4 5
+Sample Output 2 :
+1
+
 def maxFreq(l):
     d={}
     for i in l:
@@ -32,9 +54,31 @@ def maxFreq(l):
       
       
 #### Pair Sum To 0
+
+Pair Sum To 0
+Send Feedback
+Given a random integer array A of size N. Find and print the pair of elements in the array which sum to 0.
+Array A can contain duplicate elements.
+While printing a pair, print the smaller element first.
+That is, if a valid pair is (6, -6) print "-6 6". There is no constraint that out of 5 pairs which have to be printed in 1st line. You can print pairs in any order, just be careful about the order of elements in a pair.
+Input format :
+Line 1 : Integer N (Array size)
+Line 2 : Array elements (separated by space)
+Output format :
+Line 1 : Pair 1 elements (separated by space)
+Line 2 : Pair 2 elements (separated by space)
+Line 3 : and so on
+Constraints :
+0 <= N <= 10^4
+Sample Input:
+5
+2 1 -2 2 3
+Sample Output :
+-2 2
+-2 2
       
 def pairSum0(l):
-    l.sort()
+    #l.sort()
     d={}
     for i in l:
         d[i] = d.get(i,0) +1
@@ -421,16 +465,6 @@ Sample Output 3 :
 
 
 
-
-
-
-
-
-
-
-
-
-
 def longestConsecutiveSubsequence(l):
     d={}
     for i in l:
@@ -464,4 +498,87 @@ def longestConsecutiveSubsequence(l):
         start += 1
         
     return lar_seq
+    
+    
+    
+    
+    
+def longestConsecutiveIncreasingSequence(l):
+    d = dict()
+    b = [l[0]]
+    for i in l:
+        d[i] = d.get(i, True)
+    for i in l:
+        if d[i] == True:
+            d[i] = False
+            j = i
+            len1 = 1
+            start1 = j
+            a = [j]
+
+            while d.get(j - 1) != None:
+                len1 += 1
+                a.append(j-1)
+                d[j-1] = False
+                start1 = j - 1
+                j -= 1
+            j = i
+            
+            while d.get(j + 1) != None:
+                len1 += 1
+                a.append(j+1)
+                d[j+1] = False
+                j += 1
+            if len(a) > len(b):
+                b = a
+            elif len(a) == len(b):
+                min_a = min(a)
+                min_b = min(b)
+                if l.index(min_a) < l.index(min_b):
+                    b = a
+
+    
+    for i in b:
+        print(i)
+
+
+
+
+
+
+Pairs with difference K
+Send Feedback
+You are given with an array of integers and an integer K. Write a program to find and print all pairs which have difference K.
+Take difference as absolute.
+Input Format :
+Line 1 : Integer n, Size of array
+Line 2 : Array elements (separated by space)
+Line 3 : K
+Output format :
+Print pairs in different lines (pair elements separated by space). In a pair, smaller element should be printed first.
+(Order of different pairs is not important)
+Constraints :
+0 <= n <= 10^4
+Sample Input 1 :
+4 
+5 1 2 4
+3
+Sample Output 1 :
+2 5
+1 4
+Sample Input 2 :
+4
+4 4 4 4 
+0
+Sample Output 2 :
+4 4
+4 4
+4 4
+4 4
+4 4
+4 4
+
+
+
+
 
