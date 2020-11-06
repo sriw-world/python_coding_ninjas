@@ -418,3 +418,50 @@ Sample Input 3 :
 Sample Output 3 :
 15 
 16
+
+
+
+
+
+
+
+
+
+
+
+
+
+def longestConsecutiveSubsequence(l):
+    d={}
+    for i in l:
+        d[i] = 'T'
+        
+    final_maxlen = 0
+
+    start = 0
+    for i in l:
+        maxlen = 1
+        if d[i] != 'F':
+            j = i + 1
+            while j in d:
+                d[j] = 'F'
+                maxlen += 1
+                j += 1               
+                
+            z = i - 1
+            while z in d :
+                d[z] = 'F'
+                maxlen += 1
+                z -= 1
+
+        if maxlen > final_maxlen:
+            final_maxlen = maxlen
+            start = z + 1
+            
+    lar_seq = []            
+    for k in range(final_maxlen):
+        lar_seq.append(start)
+        start += 1
+        
+    return lar_seq
+
