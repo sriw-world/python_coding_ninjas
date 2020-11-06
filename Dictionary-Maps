@@ -463,86 +463,38 @@ Sample Output 3 :
 15 
 16
 
-
-
-def longestConsecutiveSubsequence(l):
+def longestConsecutiveIncreasingSequence(l):
     d={}
     for i in l:
         d[i] = 'T'
         
-    final_maxlen = 0
-
     start = 0
+    b = []
     for i in l:
-        maxlen = 1
         if d[i] != 'F':
+            d[i] = 'F'
+            a = [i]
+            j = i - 1
+            while j in d :
+                d[j] = 'F'
+                a.append(j)
+                j -= 1
+            
             j = i + 1
             while j in d:
                 d[j] = 'F'
-                maxlen += 1
+                a.append(j)
                 j += 1               
                 
-            z = i - 1
-            while z in d :
-                d[z] = 'F'
-                maxlen += 1
-                z -= 1
-
-        if maxlen > final_maxlen:
-            final_maxlen = maxlen
-            start = z + 1
-            
-    lar_seq = []            
-    for k in range(final_maxlen):
-        lar_seq.append(start)
-        start += 1
-        
-    return lar_seq
-    
-    
-    
-    
-    
-def longestConsecutiveIncreasingSequence(l):
-    d = dict()
-    b = [l[0]]
-    for i in l:
-        d[i] = d.get(i, True)
-    for i in l:
-        if d[i] == True:
-            d[i] = False
-            j = i
-            len1 = 1
-            start1 = j
-            a = [j]
-
-            while d.get(j - 1) != None:
-                len1 += 1
-                a.append(j-1)
-                d[j-1] = False
-                start1 = j - 1
-                j -= 1
-            j = i
-            
-            while d.get(j + 1) != None:
-                len1 += 1
-                a.append(j+1)
-                d[j+1] = False
-                j += 1
             if len(a) > len(b):
                 b = a
-            elif len(a) == len(b):
+
+            elif len(a) == len(b) :
                 min_a = min(a)
                 min_b = min(b)
                 if l.index(min_a) < l.index(min_b):
                     b = a
-
-    
-    for i in b:
-        print(i)
-
-
-
+    return b         
 
 
 
@@ -578,6 +530,80 @@ Sample Output 2 :
 4 4
 4 4
 
+
+
+# def printPairDiffK(l, k):
+
+def printPairDiffK(l, k):
+    d = {}
+    for i in l:
+        d[i] = d.get(i,0) + 1
+        
+    for i in d:
+        if k==0:
+            freq = d[i]*(d[i]-1)//2
+            for j in range(freq):
+                print(i,i) 
+        if i-k in d :
+            freq = d[i]*d[i-k]
+            for j in range(freq):
+                print(min(i,i-k) , max(i,i-k))
+        if i+k in d:
+            freq = d[i]*d[i+k]
+            for j in range(freq):
+                print(min(i,i+k) , max(i,i+k))
+    
+        d[i] = 0
+            
+
+n=int(input())
+l=list(int(i) for i in input().strip().split(' '))
+k=int(input())
+printPairDiffK(l, k)
+
+Longest subset zero sum
+Send Feedback
+Given an array consisting of positive and negative integers, find the length of the longest subarray whose sum is zero.
+NOTE: You have to return the length of longest subarray .
+Input Format :
+Line 1 : Contains an integer N i.e. size of array
+
+Line 2 : Contains N elements of the array, separated by spaces
+Output Format
+ Line 1 : Length of longest subarray 
+Constraints:
+0 <= N <= 10^8
+Sample Input :
+10 
+ 95 -97 -387 -435 -5 -70 897 127 23 284
+Sample Output :
+5
+
+
+
+def subsetSum(l):
+#Implement Your Code Here
+    hash_map = {}
+    
+    max_len = 0
+    curr_sum = 0
+    
+    for i in range(len(l)):
+        curr_sum += l[i]
+        if l[i] is 0 and max_len is 0:
+            max_len = i + 1
+        if curr_sum in hash_map:
+            max_len = max(max_len, i - hash_map[curr_sum])     
+        else:
+            hash_map[curr_sum] = i
+    return max_len       
+    
+
+
+n=int(input())
+l=list(int(i) for i in input().strip().split(' '))
+finalLen= subsetSum(l)
+print(finalLen)
 
 
 
