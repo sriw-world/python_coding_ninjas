@@ -188,12 +188,35 @@ class Map:
             
             
         
-    
+m = Map()
+m.insert('Sar', 2)
+print(m.size())
+
+print(m.getValue('Sar'), "Got Value of Fazeel")
+m.insert('Sam', 7)
+print(m.size())
+m.insert('Sar', 4)  # It hasn't inserted the new node of key 'Fazeel' instead it just changed the value for of that key
+print(m.size())
+print(m.getValue('Sar'), "Got Value of Fazeel")
+print(m.getValue('Sam'), "Got Value of Usmani")
+print(m.getValue('Sarrrr'))
+
+print(m.remove('Sar'))
+print(m.getValue('Sam'), "Got Value of Usmani")
     
         
         
-        
-    
+
+1
+2 Got Value of Sar
+2
+2
+4 Got Value of Sar
+7 Got Value of Sam
+None
+4
+7 Got Value of Sam
+      
     
 
     
