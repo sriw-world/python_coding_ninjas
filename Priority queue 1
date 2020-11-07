@@ -1,1 +1,10 @@
+Complete binary tree -- 
+1 All level should be completely filled except the last level
+2 First left child then right child be inserted  ie left tp right insertion
+
+Removal = 
+Removal from right to left child and last level to top
+
+Height = log(n)
+
 
