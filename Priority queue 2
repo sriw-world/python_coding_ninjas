@@ -81,3 +81,35 @@ for i in arr[::-1]:      ### only arr:  for increasing order
     print(i,end=" ")
 
     
+    
+    
+import heapq    ####inbulit function to create heap
+Min heap
+li= [1,5,4,8,7,9,11]
+heapq.heapify(li)
+print(li)
+---- 1,5,4,8,7,9,11
+heapq.heappush(li,2)
+----1,2,5,4,7,9,11,8
+
+heapq.heappop(li)  
+### 1   remove min element
+
+print(li)
+###2,5,4,8,7,9,11
+
+heapq.heapreplace(li,6)  ### replace min element with 6 and heapify
+
+print(li)   4,5,6,8,7,9,11
+
+
+Max heap
+
+heapq._heapify_max(li)
+heapq._heappop_max(li)
+heapq._heapreplace_max(li,6)
+################go to 0 index , position of new element in array
+heapq._siftdown_max(li,0,len(l1)-1)
+
+
+
