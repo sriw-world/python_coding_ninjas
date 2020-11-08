@@ -21,3 +21,56 @@ Sample Output:
 8 6 5 4 3 2
 
 
+10 5 8 1 4 6 7
+          10 
+      5         8
+    1   4     6    7
+    
+    7 nodes 7//2 -1 =2 
+    loop n to 0
+    
+    
+## Read input as specified in the question.
+## Print output as specified in the question.
+def down_heapify(arr,i,n):
+    
+    parentIndex = i
+    leftChildIndex = 2*parentIndex+1
+    rightChildIndex = 2*parentIndex+2
+    
+    while leftChildIndex<n:
+        minIndex = parentIndex
+        if arr[minIndex]<arr[leftChildIndex]:
+            minIndex = leftChildIndex
+        if rightChildIndex < n and arr[minIndex]<arr[rightChildIndex]:
+            minIndex = rightChildIndex
+        if minIndex == parentIndex:
+            break
+        
+        arr[minIndex],arr[parentIndex] = arr[parentIndex],arr[minIndex]
+        parentIndex = minIndex
+        leftChildIndex = 2*parentIndex+1
+        rightChildIndex = 2*parentIndex+2
+    
+    return
+        
+    
+def heapSort(arr):
+    ##build the heap
+    n = len(arr)
+    for  i in range(n//2-1,-1,-1):
+        down_heapify(arr,i,n)
+    ###Removing n elements from heap and put then in correct position
+    for i in range(n-1,0,-1):
+        arr[0],arr[i] = arr[i],arr[0]
+        down_heapify(arr,0,i)
+	
+    return
+
+n = int(input())
+arr = [int(i) for i in input().split()]
+heapSort(arr)
+for i in arr[::-1]:
+    print(i,end=" ")
+
+    
