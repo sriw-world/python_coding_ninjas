@@ -223,3 +223,15 @@ true
 
 
 
+def checkMaxHeap(lst):
+    n= len(lst)
+    #from where non leaf node starts to 0
+    for i in range(n//2-1,-1,-1):
+        
+        if lst[i]<lst[2*i+1]:
+            return False
+	    ###right index within limits
+        elif 2*i+2 <n and lst[i]<lst[2*i+2]:
+            return False
+    
+    return True
