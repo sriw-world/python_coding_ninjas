@@ -70,7 +70,8 @@ def heapSort(arr):
 n = int(input())
 arr = [int(i) for i in input().split()]
 heapSort(arr)
-for i in arr[::-1]:
+#for decreasing order
+for i in arr[::-1]:      ### only arr:  for increasing order
     print(i,end=" ")
 
     
