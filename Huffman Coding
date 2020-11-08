@@ -51,10 +51,18 @@ return rootNode
 
 import heapq
 
-class BinaryNode:
-  def __init__(self):
+class BinaryTreeNode:
+  def __init__(self,value,freq):
+    self.value=value
+    self.freq=freq
+    self.left=None
+    self.right=None
+  def __it__(self,other):
+    return self.frequency<other.frequency
+  
+  def __eq__(self,other):
+    return self.frequency == other.frequency
     
-
 class HuffmannCoding:
   def __init__(self,path):
     self.path=path
@@ -68,7 +76,14 @@ class HuffmannCoding:
     return freq_dict
     
   def __buildHeap(self,freq_dict):
+    for key in freq_dict:
+      frequency = freq_dict[key]
+      binary_tree_node = BinaryTreeNode(key,frequency)
+      heapq.heappush(self.__heap,binary_tree_node)
     
+  def __buildTree(self):
+    while
+  
   def compress(self):
     text="dsfdsfdsgdsgdsdafsf"
     ##make freq
@@ -78,7 +93,7 @@ class HuffmannCoding:
     self.__buildHeap(freq_dict)
     
     ##contruct binaary tree from heap 
-    
+    self.__buildTree()
     ##contruct codes from binaary tree 
     
     ##create encoded text from codes
