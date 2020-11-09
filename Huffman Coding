@@ -1,4 +1,5 @@
 https://www.programiz.com/dsa/huffman-coding
+https://bhrigu.me/blog/2017/01/17/huffman-coding-python-implementation/
 
 Huffman Coding -- text compression algo
 
@@ -121,23 +122,59 @@ class HuffmannCoding:
     for character in text:
       encoded_text += self.__codes[character]
     return encoded_text
+    
+   def __getPaddedEncodedText(self, encoded_text):
+      extra_padding = 8 - len(encoded_text) % 8
+      for i in range(extra_padding):
+	 encoded_text += "0"
+
+      padded_info = "{0:08b}".format(extra_padding)
+      encoded_text = padded_info + encoded_text
+      return encoded_text
+      
+  def __getByteArray(self, padded_encoded_text):
+    #if(len(padded_encoded_text) % 8 != 0):
+     # print("Encoded text not padded properly")
+     # exit(0)
+
+    b = bytearray()
+    for i in range(0, len(padded_encoded_text), 8):
+      byte = padded_encoded_text[i:i+8]
+      b.append(int(byte, 2))
+    return b
 
   
   def compress(self):
-    text="dsfdsfdsgdsgdsdafsf"
-    ##make freq
-    freq_dict = self._make_frequency_dict(text)
-    
-    ##contruct heap from freq dict
-    self.__buildHeap(freq_dict)
-    
-    ##contruct binaary tree from heap 
-    self.__buildTree()
-    ##contruct codes from binaary tree 
-    self.__buildCodes()
-    ##create encoded text from codes
-    encoded_text = self.__getEncodedText(text)
-    ##put encoded text into binary file
-    
+  
+    filename, file_extension = os.path.splitext(self.path)
+    output_path = filename + ".bin"
+   # text="dsfdsfdsgdsgdsdafsf"
+    with open(self.path, 'r+') as file, open(output_path, 'wb') as output:
+    	   text = file.read()
+	   text = text.rstrip()
+
+	    ##make freq
+	    freq_dict = self._make_frequency_dict(text)
+
+	    ##contruct heap from freq dict
+	    self.__buildHeap(freq_dict)
+
+	    ##contruct binaary tree from heap 
+	    self.__buildTree()
+	    ##contruct codes from binaary tree 
+	    self.__buildCodes()
+	    ##create encoded text from codes
+	    encoded_text = self.__getEncodedText(text)
+	    ##put encoded text into binary file
+
+
+	    ###pad encoded text
+	    padded_encoded_text = self.__getPaddedEncodedText(encoded_text)
+	    bytes_array = self.__getByteArray(padded_encoded_text)
+
+	    #return this binary file as output
+	    final_bytes = bytes(bytes_array)
+	    output.write(final_bytes)
+    return output    
     
     
