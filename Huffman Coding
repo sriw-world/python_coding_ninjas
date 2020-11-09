@@ -58,15 +58,16 @@ class BinaryTreeNode:
     self.left=None
     self.right=None
   def __it__(self,other):
-    return self.frequency<other.frequency
+    return self.frequency<other.freq
   
   def __eq__(self,other):
-    return self.frequency == other.frequency
+    return self.frequency == other.freq
     
 class HuffmannCoding:
   def __init__(self,path):
     self.path=path
     self.__heap=[]
+    self.__codes={}
   def _make_frequency_dict(self,text):
     freq_dict={}
     for char in text:
@@ -82,7 +83,45 @@ class HuffmannCoding:
       heapq.heappush(self.__heap,binary_tree_node)
     
   def __buildTree(self):
-    while
+    while(len(self.__heap)>1):
+    ##pop min 2 node
+			   binary_tree_node_1 = heapq.heappop(self.__heap)
+			   binary_tree_node_2 = heapq.heappop(self.__heap)
+     ##node with sum freq
+			   merged = BinaryTreeNode(None, binary_tree_node_1.freq + binary_tree_node_1.freq)
+			   merged.left = binary_tree_node_1
+			   merged.right = binary_tree_node_2
+
+			   heapq.heappush(self.__heap, merged)
+    return
+    
+  
+  def __buildCodesHelper(self, root, current_code):
+    if(root == None):
+     return
+
+    if(root.value != None):
+     self.__codes[root.value] = current_code
+     ###self.reverse_mapping[current_code] = root.char
+     return
+###add 0 to left 1 to righ
+    self.__buildCodesHelper(root.left, current_code + "0")
+    self.__buildCodesHelper(root.right, current_code + "1")
+
+
+	def __buildCodes(self):
+ #TREE WITH FREQ has been build 
+		root = heapq.heappop(self.__heap)
+		current_code = ""
+		self.make_codes_helper(root, current_code)
+  
+  
+  def __getEncodedText(self, text):
+    encoded_text = ""
+    for character in text:
+      encoded_text += self.__codes[character]
+    return encoded_text
+
   
   def compress(self):
     text="dsfdsfdsgdsgdsdafsf"
@@ -95,9 +134,9 @@ class HuffmannCoding:
     ##contruct binaary tree from heap 
     self.__buildTree()
     ##contruct codes from binaary tree 
-    
+    self.__buildCodes()
     ##create encoded text from codes
-    
+    encoded_text = self.__getEncodedText(text)
     ##put encoded text into binary file
     
     
