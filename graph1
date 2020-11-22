@@ -493,3 +493,101 @@ if s!=None:
         print(i,end=" ")
         
         
+Code : Is Connected ?
+Send Feedback
+Given an undirected graph G(V,E), check if the graph G is connected graph or not.
+Note:
+1. V is the number of vertices present in graph G and vertices are numbered from 0 to V-1. 
+2. E is the number of edges present in graph G.
+Input Format :
+The first line of input contains two integers, that denote the value of V and E.
+Each of the following E lines contains two integers, that denote that there exists an edge between vertex a and b.
+Output Format :
+The first and only line of output contains "true" if the given graph is connected or "false", otherwise.
+Constraints :
+0 <= V <= 1000
+0 <= E <= (V * (V - 1)) / 2
+0 <= a <= V - 1
+0 <= b <= V - 1
+Time Limit: 1 second
+Sample Input 1:
+4 4
+0 1
+0 3
+1 2
+2 3
+Sample Output 1:
+true
+Sample Input 2:
+4 3
+0 1
+1 3 
+0 3
+Sample Output 2:
+false 
+Sample Output 2 Explanation
+The graph is not connected, even though vertices 0,1 and 3 are connected to each other but there isn’t any path from vertices 0,1,3 to vertex 2. 
+
+# Write your code 
+
+import queue
+
+class Graph:
+    
+    def __init__(self,n):
+        self.nVertices=n
+        self.adjMatrix=[[0 for i in range(n)] for j in range(n)]
+        
+    def addedge(self,v1,v2):
+        self.adjMatrix[v1][v2]=1
+        self.adjMatrix[v2][v1]=1
+        
+    def removeedge(self,v1,v2):
+        self.adjMatrix[v1][v2]=0
+        self.adjMatrix[v2][v1]=0
+
+    def __getpathHelper(self,visited,q):
+        
+        while q.empty() is False:
+            u = q.get()
+            for i in range(self.nVertices):
+                if self.adjMatrix[u][i] > 0 and visited[i] is False:
+                    q.put(i)
+                    visited[i] = True
+                    self.__getpathHelper(visited,q)
+        
+    def getpath(self):
+        visited = [False for i in range(self.nVertices)]
+        
+        if self.nVertices == 0:
+            print("true")
+            return 
+        
+        q = queue.Queue()
+        q.put(0)
+        visited[0] = True
+        self.__getpathHelper(visited,q)
+        
+        if False in visited:
+            print("false")
+        else:
+            print("true")
+
+                
+from sys import stdin
+import sys
+sys.setrecursionlimit(10**8)
+a=stdin.readline().strip().split()
+n=int(a[0])
+m=int(a[1])
+g=Graph(n)
+li={}
+for i in range(m):
+    a=stdin.readline().strip().split()
+    v1=int(a[0])
+    v2=int(a[1])
+    g.addedge(v1,v2)
+
+s=g.getpath()
+
+        
