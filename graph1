@@ -450,7 +450,7 @@ class Graph:
             u = q.get()
             for i in range(self.nVertices):
                 if self.adjMatrix[u][i] > 0 and visited[i] is False and u!=i:
-                    q.put(i)
+                    #q.put(i)
                     out = self.__getpathHelper(i,e,visited,q)
                     if len(out) != 0:
                         out.append(s)
