@@ -23,3 +23,101 @@ g = Graph()
 g.addEdge(0,1)
 g.addEdge(0,3)
  
+
+
+
+DFS  Depth First Search
+Downward Print of all nodes
+
+class Graph:
+  def __init__(Self,nVertices):
+    self.nVertices = nVertices
+    self.adjMatrix = [[0 for i in range(nVertices)] for j in ranje(nVertices)]
+    
+    def addEdge(self,v1,v2):
+      self.adjMatrix[v1][v2] = 1
+      self.adjMatrix[v2][v1] = 1
+      
+    def removeEdge(self):
+      if self.containsEdge(v1,v2) is False:
+        return
+      
+      self.adjMatrix[v1][v2] = 0
+      self.adjMatrix[v2][v1] = 0
+      
+    def containsEdge(self,v1,v2):
+      return True if self.adjMatrix[v1][v2] > 0 else False
+    
+    
+    def __dfsHelper(self,sv,visited):
+      print(sv)
+      visited[sv] = True
+      for i in range(self.nVertices):
+        if self.adjMatrix[sv][i] > 1 and visited[i] is False:
+          self.__dfsHelper(i,visited)
+    
+    def dfs(self):
+      visited = [False for i in range(self.nVertices]
+      self.__dfsHelper(0,visited)
+    
+    
+    def __str__(self):
+      return str(self.adjMatrix)
+g = Graph()
+g.addEdge(0,1)
+g.addEdge(0,3)
+g.dfs()
+
+
+BFS Breadth First Search
+
+
+class Graph:
+  def __init__(Self,nVertices):
+    self.nVertices = nVertices
+    self.adjMatrix = [[0 for i in range(nVertices)] for j in ranje(nVertices)]
+    
+    def addEdge(self,v1,v2):
+      self.adjMatrix[v1][v2] = 1
+      self.adjMatrix[v2][v1] = 1
+      
+    def removeEdge(self):
+      if self.containsEdge(v1,v2) is False:
+        return
+      
+      self.adjMatrix[v1][v2] = 0
+      self.adjMatrix[v2][v1] = 0
+      
+    def containsEdge(self,v1,v2):
+      return True if self.adjMatrix[v1][v2] > 0 else False
+    
+    
+    def __dfsHelper(self,sv,visited):
+      print(sv)
+      visited[sv] = True
+      for i in range(self.nVertices):
+        if self.adjMatrix[sv][i] > 1 and visited[i] is False:
+          self.__dfsHelper(i,visited)
+    
+    def dfs(self):
+      visited = [False for i in range(self.nVertices]
+      self.__dfsHelper(0,visited)
+    
+    def __bfsHelper(self,sv,visited):
+      print(sv)
+      visited[sv] = True
+      q = Queue()
+      
+      
+    def bfs(self):
+      visited = [False for i in range(self.nVertices]
+      self.__bfsHelper(0,visited)
+    
+    def __str__(self):
+      return str(self.adjMatrix)
+g = Graph()
+g.addEdge(0,1)
+g.addEdge(0,3)
+g.dfs()
+
+
