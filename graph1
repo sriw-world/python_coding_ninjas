@@ -421,6 +421,75 @@ Sample Input 2 :
 Sample Output 2 :
 
 
+# Write your code 
 
+import queue
 
+class Graph:
+    
+    def __init__(self,n):
+        self.nVertices=n
+        self.adjMatrix=[[0 for i in range(n)] for j in range(n)]
+        
+    def addedge(self,v1,v2):
+        self.adjMatrix[v1][v2]=1
+        self.adjMatrix[v2][v1]=1
+        
+    def removeedge(self,v1,v2):
+        self.adjMatrix[v1][v2]=0
+        self.adjMatrix[v2][v1]=0
 
+    def __getpathHelper(self,s,e,visited,q):
+        
+        if self.adjMatrix[s][e] > 0:
+            return [e,s]
+        
+        q.put(s)
+        visited[s] = True
+        while q.empty() is False:
+            u = q.get()
+            for i in range(self.nVertices):
+                if self.adjMatrix[u][i] > 0 and visited[i] is False and u!=i:
+                    q.put(i)
+                    out = self.__getpathHelper(i,e,visited,q)
+                    if len(out) != 0:
+                        out.append(s)
+                        return out
+        return []
+        
+    def getpath(self,s,e):
+        visited = [False for i in range(self.nVertices)]
+        q = queue.Queue()
+        
+        if s==e:
+            return [s]
+        
+        if s>= self.nVertices or e>= self.nVertices:
+            return []
+        
+        return self.__getpathHelper(s,e,visited,q)
+        
+
+                
+from sys import stdin
+import sys
+sys.setrecursionlimit(10**8)
+a=stdin.readline().strip().split()
+n=int(a[0])
+m=int(a[1])
+g=Graph(n)
+li={}
+for i in range(m):
+    a=stdin.readline().strip().split()
+    v1=int(a[0])
+    v2=int(a[1])
+    g.addedge(v1,v2)
+a=stdin.readline().strip().split()
+v1=int(a[0])
+v2=int(a[1])
+s=g.getpath(v1,v2)
+if s!=None:
+    for i in s:
+        print(i,end=" ")
+        
+        
