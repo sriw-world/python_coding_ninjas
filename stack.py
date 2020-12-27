@@ -88,6 +88,21 @@ def isBalanced(expr):
 
 ######################Check redundant brackets
 
+# Input: 
+# ((a+b))
+# (a+(b)/c)
+# (a+b*(c-d))
+# Output: 
+# Yes
+# Yes
+# No
+
+# Explanation:
+# 1. ((a+b)) can reduced to (a+b), this Redundant
+# 2. (a+(b)/c) can reduced to (a+b/c) because b is
+# surrounded by () which is redundant.
+# 3. (a+b*(c-d)) doesn't have any redundant or multiple
+# brackets.
 
 def checkRedundantBrackets(expression) :
     
@@ -98,6 +113,8 @@ def checkRedundantBrackets(expression) :
             l1.append(i)
         else:
             count = 0
+	
+	###while loop is to check this condition () and  (a)
             while l1[-1] != '(':
                 count += 1
                 l1.pop()
@@ -105,13 +122,8 @@ def checkRedundantBrackets(expression) :
                 return True
             if count != 0 or count !=1:
                 l1.pop()
-                
-                
-    return False
-    
-    
-    
-    
+		
+    return False   
     
     ################# Reverse Stack
     
