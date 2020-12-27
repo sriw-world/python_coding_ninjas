@@ -47,7 +47,20 @@ class Stack :
             return self.head.data        
 	#Implement the top() function
 
+# Stack using array
 
+arr = []
+
+######push
+arr.insert(0,data)
+
+##### pop
+arr.pop(0)
+
+####top
+arr[0]
+	
+	
 ##########################Balanced Paranthesis
 
 
