@@ -126,9 +126,29 @@ def checkRedundantBrackets(expression) :
     return False   
     
     ################# Reverse Stack
+    arr = [1,2,3,4,5,6]
+    #1. arr[::-1]
+
+#2   i = 0
+# while i!=len(arr):
+#     arr.insert(i,arr.pop())
+#     i+=1    
     
-    
-    
+#### 3 
+
+arr = []
+s is string
+###push in stack
+for i in range(len(s)):
+	arr.append(s[i])
+	
+rev = ""
+while len(arr)!= 0:
+	rev += arr.pop()
+	
+	
+
+
     
     
     
