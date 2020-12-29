@@ -133,6 +133,10 @@ class Stack :
         self.s2 = [] 
   
     def enQueue(self, x): 
+        
+        ###################
+#         s1.insert(0,x)  alt soln
+        ##################
           
         # Move all elements from s1 to s2  
         while len(self.s1) != 0:  
