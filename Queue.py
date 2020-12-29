@@ -59,7 +59,8 @@ class Queue :
 
     def isEmpty(self) :
         return self.getSize() == 0
-            
+      
+#      1-2-3-4-5-|
     def enqueue(self, data) :
         if self.head == None :
             newnode = Node(data)
@@ -68,8 +69,8 @@ class Queue :
             self.count += 1
         else:
             newnode = Node(data)
-#             self.tail.next = newnode
-            newnode.next = self.tail
+            self.tail.next = newnode
+            
             self.tail = newnode
             self.count += 1
 
