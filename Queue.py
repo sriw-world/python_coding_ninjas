@@ -68,7 +68,8 @@ class Queue :
             self.count += 1
         else:
             newnode = Node(data)
-            self.tail.next = newnode
+#             self.tail.next = newnode
+            newnode.next = self.tail
             self.tail = newnode
             self.count += 1
 
