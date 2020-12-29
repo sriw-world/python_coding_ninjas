@@ -29,6 +29,12 @@ def removeleaf(root):
 
 ########## Binary Tree Is Balanced
 
+# Consider a height-balancing scheme where following conditions should be checked to determine if a binary tree is balanced.
+# An empty tree is height-balanced. A non-empty binary tree T is balanced if:
+# 1) Left subtree of T is balanced
+# 2) Right subtree of T is balanced
+# 3) The difference between heights of left subtree and right subtree is not more than 1.
+
 Time complexity O(n^2) and O(nlogn)
 For every node it is checkinh height
 
