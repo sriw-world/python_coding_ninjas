@@ -227,6 +227,42 @@ def buildTree(postOrder, inOrder, n) :
         
 ################Create & Insert Duplicate Node
 
+    2
+   / \
+  1   3
+is changed to…
+
+       2
+      / \
+     2   3
+    /   /
+   1   3
+  /
+ 1
+And the tree
+
+            1
+          /   \
+        2      3
+      /  \
+    4     5
+is changed to
+
+
+
+
+               1
+             /   \
+           1      3
+          /      /
+        2       3
+      /  \
+     2    5
+    /    /
+   4   5
+  /   
+ 4    
+
 def insertDuplicateNode(root):
     if root  == None:
         return None
