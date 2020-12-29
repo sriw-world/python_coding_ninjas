@@ -107,7 +107,7 @@ class Stack :
         self.q2.put(data)
         while not self.q1.empty() :
             self.q2.put(self.q1.queue[0])
-            self.get()
+            self.q1.get()
         
         self.q1,self.q2 = self.q2, self.q1
         self.count += self.count
