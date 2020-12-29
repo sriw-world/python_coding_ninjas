@@ -120,6 +120,20 @@ def diameter_height(node):
 ###########LevelSize print of node in tree
 Print Levelwise
 
+# Example 2:
+#           1
+#        /     \
+#       2       3
+#     /   \       \
+#    4     5       6
+#         /  \     /
+#        7    8   9
+# Output for above tree should be
+# 1
+# 2 3
+# 4 5 6
+# 7 8 9<
+
 def printLevelWise(root):
     if root is None:
         return
