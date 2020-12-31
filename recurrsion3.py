@@ -123,3 +123,39 @@ for s in ans:
     print(s)
 
 
+
+############## Printing the answer insted of returning
+    
+def fact(n,ans):
+    if n==0:
+        print(ans)
+        return
+    
+    ans = n*ans
+    fact(n-1,ans)
+    
+    
+fact(5,1)  --(5,1)--(4,5) -- (3,20) -- (2,60) -- (1,120)-- (0,120) -->120
+    
+    
+#### Mnimum in list
+    
+def minlist(l):
+    
+    if len(l)==0:
+        return l[0]
+    
+    no = minlist(l[1:])
+    return min(l[0],no)
+    
+    
+def minList(l,minsofar=100000000):
+    if len(l) == 0:
+        print(minsofar)
+        return
+    minno = min(l[0],minsofar)  
+    minList(l[1:],minno)
+    
+    
+    
+    
