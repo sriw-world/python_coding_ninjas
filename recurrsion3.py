@@ -29,9 +29,10 @@ def subsequences(string):
     
     output = []
     
+    #original string remains 
     for sub in smalleroutput:
         output.append(sub)
-    
+    #new string also included
     for sub in smalleroutput:
         sub_with_first_char = string[0] + sub
         output.append(sub_with_first_char)
