@@ -211,3 +211,81 @@ def subsetsSumK(arr, n, sum):
   
 
     
+    
+    Return subset of an array
+Send Feedback
+Given an integer array (of length n), find and return all the subsets of input array.
+Subsets are of length varying from 0 to n, that contain elements of the array. But the order of elements should remain same as in the input array.
+Note : The order of subsets are not important.
+Input format :
+
+Line 1 : Size of array
+
+Line 2 : Array elements (separated by space)
+
+Sample Input:
+3
+15 20 12
+Sample Output:
+[] (this just represents an empty array, don't worry about the square brackets)
+12 
+20 
+20 12 
+15 
+15 12 
+15 20 
+15 20 12 
+
+
+def subs(s):
+    if len(s)==0:
+        output=[]
+        output.append(" ")
+        return output
+    
+    smallerString=s[1:]
+    smallerOutput=subs(smallerString)
+    
+    output=[]
+    
+    for sub in smallerOutput:
+        output.append(sub)
+    
+    for sub in smallerOutput:
+        subs_with_zeroth_char=s[0]+" "+sub
+        output.append(subs_with_zeroth_char)
+    
+    return output
+    
+n=int(input())
+arr = input().split()
+out=subs(arr)
+for s in out:
+    print(s)
+    
+    
+    
+    
+   
+##################2 approach
+    
+
+def subset(arr):
+    n=len(arr)
+    if(n<=0):
+        output=[[]]
+        return output
+    output=subset(arr[:n-1])
+    outputLen=len(output)
+    #output*=2 This copies the reference .we need shallow copies
+    for i in range(0,outputLen):
+        output.append(output[i].copy())
+        output[outputLen+i].append(arr[n-1])
+    return output
+n=int(input())
+arr=list(int(i) for i in input().strip().split(' '))
+output=subset(arr)
+for lst in output:
+    for num in lst:
+        print(num,end=' ')
+    print()
