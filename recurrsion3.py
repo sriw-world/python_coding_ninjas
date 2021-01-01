@@ -289,3 +289,46 @@ for lst in output:
     for num in lst:
         print(num,end=' ')
     print()
+
+    
+    
+    
+Return Permutations of a String
+Send Feedback
+Given a string, find and return all the possible permutations of the input string.
+Note : The order of permutations are not important.
+Sample Input :
+abc
+Sample Output :
+abc
+acb
+bac
+bca
+cab
+cba
+
+
+def permutations(string):
+     #Implement Your Code Here
+    if len(string)==1:
+        output=[]
+        output.append(string)
+        return output
+
+        
+    output=[]
+    for i in range(len(string)):
+        temp = permutations(string[0:i]+string[i+1:])
+        for ele in temp:
+            a = string[i]+ele
+            output.append(a)
+    return output
+
+        
+        
+        
+
+string = input()
+ans = permutations(string)
+for s in ans:
+    print(s)
