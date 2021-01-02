@@ -120,3 +120,110 @@ row and column.
     subProblems[currStart][currEnd] = max(subProblems[currStart - 1][currEnd], subProblems[currStart][currEnd - 1])
  
  return subProblems[m][n]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0 1 Knapsack - Problem
+Send Feedback
+A thief robbing a store can carry a maximal weight of W into his knapsack. There are N items, and i-th item weigh 'Wi' and the value being 'Vi.' What would be the maximum value V, that the thief can steal?
+Input Format :
+The first line of the input contains an integer value N, which denotes the total number of items.
+
+The second line of input contains the N number of weights separated by a single space.
+
+The third line of input contains the N number of values separated by a single space.
+
+The fourth line of the input contains an integer value W, which denotes the maximum weight the thief can steal.
+Output Format :
+Print the maximum value of V that the thief can steal.
+Constraints :
+1 <= N <= 20
+1<= Wi <= 100
+1 <= Vi <= 100
+
+Time Limit: 1 sec
+Sample Input 1 :
+4
+1 2 4 5
+5 4 8 6
+5
+Sample Output 1 :
+13
+Sample Input 2 :
+5
+12 7 11 8 9
+24 13 23 15 16
+26
+Sample Output 2 :
+51
+
+
+def knapsack(weights, values, n, maxWeight) :
+ if (n == 0) or (maxWeight == 0) :
+  return 0
+ 
+ if weights[n - 1] > maxWeight :
+  return knapsack(weights, values, n - 1, maxWeight)
+
+ includeItem = values[n - 1] + knapsack(weights, values, n - 1, maxWeight - weights[n - 1])
+ excludeItem = knapsack(weights, values, n - 1, maxWeight)
+
+ return max(includeItem, excludeItem)
+
+
+
+
+Matrix Chain Multiplication
+Send Feedback
+Given a chain of matrices A1, A2, A3,.....An, you have to figure out the most efficient way to multiply these matrices. In other words, determine where to place parentheses to minimize the number of multiplications.
+You will be given an array p[] of size n + 1. Dimension of matrix Ai is p[i - 1]*p[i]. You need to find minimum number of multiplications needed to multiply the chain.
+Input Format:
+The first line of input contains an integer, that denotes the value of n. The following line contains n+1 integers, that denote the value of elements of array p[].
+Output Format:
+The first and only line of output prints the minimum number of multiplication needed.
+Constraints :
+1 <= n <= 100
+Time limit: 1 second
+Sample Input 1:
+3
+10 15 20 25
+Sample Output 1:
+8000
+Sample Output Explanation:
+There are two ways to multiply the chain - A1*(A2*A3) or (A1*A2)*A3.
+If we multiply in order- A1*(A2*A3), then number of multiplications required are 15000.
+If we multiply in order- (A1*A2)*A3, then number of multiplications required are 8000.
+Thus minimum number of multiplications required are 8000. 
+
+
+def mcm(p,n):
+ n+=1
+ m=[[sys.maxsize for i in range (0,n+1)] for j in range (0,n+1)]
+ for i in range (1,n):
+   m[i][i]=0
+ 
+ for l in range (2,n):
+   for i in range (1,n-l+1):
+     j=i+l-1
+     for k in range (i,j):
+       q=m[i][k]+m[k+1][j]+p[i-1]*p[k]*p[j]
+       if(q<m[i][j]):
+         m[i][j]=q
+  
+  return m[1][n-1]
