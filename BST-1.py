@@ -97,7 +97,7 @@ def constructBST(lst):
             return True
         leftmax = maximum(root.left)
         rightmin = minimum(root.right)
-        if root.data > rightmax and root.data < leftmin:
+        if root.data > rightmin and root.data < leftmax:
             return False
             
         left = checkbst(root.left)
