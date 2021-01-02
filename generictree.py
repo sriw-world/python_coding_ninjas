@@ -22,6 +22,15 @@ def printtree(root):
   #####if no child no execution of for loop so no base case reqd
   for child in root.children:  
     printtree(child)
+    
+    
+def printLevelWiseTree(tree):
+  q = [tree]
+  while q:
+    parent = q.pop(0)
+    print(parent.data,':', ",".join(str(num) for num in parent.children),sep='')
+    for child in parent.children:
+      q.append(child)
 
 #################Taking input in Generic Tree
 def takeTreeInput(root):
@@ -306,3 +315,15 @@ Sample Input 2 :
 Sample Output 2:
 30
     
+def nextLargest(tree, n):
+  ans = None
+  if not tree:
+    return ans
+  if tree.data > n:
+    ans = tree
+  for child in tree.children:
+    temp = nextLargest(child, n)
+    if temp:
+      if (not ans) or ans.data > temp.data:
+        ans = temp
+  return ans
