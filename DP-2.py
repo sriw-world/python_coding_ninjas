@@ -45,16 +45,20 @@ Sample Output 3 :
 
 from sys import stdin
 MAX_VALUE = 2147483647
+
 def minCostPathHelper(input, mRows, nCols, currRow, currCol) :
-if (currRow >= mRows) or (currCol >= nCols) :
-return MAX_VALUE
-if currRow == (mRows - 1) and currCol == (nCols - 1) :
-return input[currRow][currCol]
-downCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), currCol)
-diagonalCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), (currCol + 1))
-leftCost = minCostPathHelper(input, mRows, nCols, currRow, (currCol + 1))
-return input[currRow][currCol] + min(diagonalCost, downCost, leftCost)
+ 
+ if (currRow >= mRows) or (currCol >= nCols) :
+  return MAX_VALUE
+ if currRow == (mRows - 1) and currCol == (nCols - 1) :
+  return input[currRow][currCol]
+ downCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), currCol)
+ diagonalCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), (currCol + 1))
+ leftCost = minCostPathHelper(input, mRows, nCols, currRow, (currCol + 1))
+ 
+ return input[currRow][currCol] + min(diagonalCost, downCost, leftCost)
+
 def minCostPath(input, mRows, nCols) :
-if mRows == 0 :
-return MAX_VALUE
-return minCostPathHelper(input, mRows, nCols, 0, 0)
+ if mRows == 0 :
+  return MAX_VALUE
+ return minCostPathHelper(input, mRows, nCols, 0, 0)
