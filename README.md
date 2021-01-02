@@ -39,14 +39,14 @@ This repositry contains solution of all Coding Ninja Python Data Structure Cours
 
 18.Huffman Coding
 
-19.
+19.DP-1
 
-20.
+20.DP-2
 
-21.
+21.Recurrsion-3
 
-22.
+22.Backtracking
 
-23.
+23.Graph-1
 
-24.
+24.Graph-2
