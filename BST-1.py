@@ -79,16 +79,16 @@ def constructBST(lst):
     def maximun(root):
         if root==None:
             return INT_MIN
-        left = maxmin(root.left)
-        right = maxmin(root.right)
+        left = maximun(root.left)
+        right = maximun(root.right)
         return max(root.data,left,right) 
         
         
     def minimum(root):
         if root==None:
             return INT_MAX
-        left = maxmin(root.left)
-        right = maxmin(root.right)
+        left = minimum(root.left)
+        right = minimum(root.right)
         return  min(root.data,left,right)
         
     
