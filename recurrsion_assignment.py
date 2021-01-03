@@ -58,6 +58,24 @@ return solve(str, start + 1, end - 1);
 function checkPalindrome(str: a string):
 return solve(str, 0, str.length() - 1);
 
+########python
+
+
+def pallin(s):
+    if len(s)==1 or len(s)==0:
+        return s
+    
+    return  pallin(s[1:]) + s[0]
+
+
+str = input()
+rev = pallin(str)
+if str == rev:
+    print("true")
+else:
+    print("false")
+
+
 # Sum of digits (recursive)
 
 Sample Input 1 :
