@@ -18,7 +18,19 @@ Sample Input 2 :
 Sample Output 2 :
 1.93750
 
+def geometric(n):
+    
+    if n==0:
+        return 1/2**n
+    
+    return 1/2**n + geometric(n-1)
 
+
+
+
+
+
+##############zeros count
 def zeros_count(str):
     if len(str) == 0:
         return 0
