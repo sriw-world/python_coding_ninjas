@@ -218,6 +218,21 @@ Sample Output 2 :
 a*a*a*a
 
 
+def insertstar(str):
+    if len(str) == 0 or len(str) == 1:
+        return str
+    smallOutput = insertstar(str[1:])
+    if str[0] == smallOutput[0]:
+        return str[0] + "*" + smallOutput 
+    else:
+        return str[0] + smallOutput
+    
+    
+str = input().strip()
+print(insertstar(str))
+
+
+
 int length(char input[])
 {
 int len = 0;
