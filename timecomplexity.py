@@ -1,56 +1,58 @@
 
-Array Intersection
-Send Feedback
-You have been given two integer arrays/list(ARR1 and ARR2) of size N and M, respectively. You need to print their intersection; An intersection for this problem can be defined when both the arrays/lists contain a particular value or to put it in other words, when there is a common value that exists in both the arrays/lists.
-Note :
-Input arrays/lists can contain duplicate elements.
+# Array Intersection
+# Send Feedback
+# You have been given two integer arrays/list(ARR1 and ARR2) of size N and M, respectively. You need to print their intersection; An intersection for this problem 
+# can be defined when both the arrays/lists contain a particular value or to put it in other words, when there is a common value that exists in both the arrays/lists.
+# Note :
+# Input arrays/lists can contain duplicate elements.
 
-The intersection elements printed would be in the order they appear in the first sorted array/list(ARR1).
+# The intersection elements printed would be in the order they appear in the first sorted array/list(ARR1).
 
 
-Input format :
-The first line contains an Integer 't' which denotes the number of test cases or queries to be run. Then the test cases follow.
+# Input format :
+# The first line contains an Integer 't' which denotes the number of test cases or queries to be run. Then the test cases follow.
 
-The first line of each test case or query contains an integer 'N' representing the size of the first array/list.
+# The first line of each test case or query contains an integer 'N' representing the size of the first array/list.
 
-The second line contains 'N' single space separated integers representing the elements of the first the array/list.
+# The second line contains 'N' single space separated integers representing the elements of the first the array/list.
 
-The third line contains an integer 'M' representing the size of the second array/list.
+# The third line contains an integer 'M' representing the size of the second array/list.
 
-The fourth line contains 'M' single space separated integers representing the elements of the second array/list.
-Output format :
-For each test case, print the intersection elements in a row, separated by a single space.
+# The fourth line contains 'M' single space separated integers representing the elements of the second array/list.
+# Output format :
+# For each test case, print the intersection elements in a row, separated by a single space.
 
-Output for every test case will be printed in a separate line.
-Constraints :
-1 <= t <= 10^2
-0 <= N <= 10^6
-0 <= M <= 10^6
+# Output for every test case will be printed in a separate line.
+# Constraints :
+# 1 <= t <= 10^2
+# 0 <= N <= 10^6
+# 0 <= M <= 10^6
 
-Time Limit: 1 sec 
-Sample Input 1 :
-2
-6
-2 6 8 5 4 3
-4
-2 3 4 7 
-2
-10 10
-1
-10
-Sample Output 1 :
-2 3 4
-10
-Sample Input 2 :
-1
-4
-2 6 1 2
-5
-1 2 3 4 2
-Sample Output 2 :
-1 2 2
-Explanation for Sample Output 2 :
-Since, both input arrays have two '2's, the intersection of the arrays also have two '2's. The first '2' of first array matches with the first '2' of the second array. Similarly, the second '2' of the first array matches with the second '2' if the second array.
+# Time Limit: 1 sec 
+# Sample Input 1 :
+# 2
+# 6
+# 2 6 8 5 4 3
+# 4
+# 2 3 4 7 
+# 2
+# 10 10
+# 1
+# 10
+# Sample Output 1 :
+# 2 3 4
+# 10
+# Sample Input 2 :
+# 1
+# 4
+# 2 6 1 2
+# 5
+# 1 2 3 4 2
+# Sample Output 2 :
+# 1 2 2
+# Explanation for Sample Output 2 :
+# Since, both input arrays have two '2's, the intersection of the arrays also have two '2's. The first '2' of first array matches with the first '2' of the second array.
+# Similarly, the second '2' of the first array matches with the second '2' if the second array.
 
 
 
@@ -74,14 +76,16 @@ def intersection(arr1, arr2, n, m) :
 Array Equilibrium Index
 Send Feedback
 For a given array/list(ARR) of size 'N,' find and return the 'Equilibrium Index' of the array/list.
-Equilibrium Index of an array/list is an index 'i' such that the sum of elements at indices [0 to (i - 1)] is equal to the sum of elements at indices [(i + 1) to (N-1)]. One thing to note here is, the item at the index 'i' is not included in either part.
+Equilibrium Index of an array/list is an index 'i' such that the sum of elements at indices [0 to (i - 1)] is equal to the sum of elements at indices [(i + 1) 
+to (N-1)]. One thing to note here is, the item at the index 'i' is not included in either part.
 If more than one equilibrium indices are present, then the index appearing first in left to right fashion should be returned. Negative one(-1) if no such index is present.
 Example:
 Let's consider an array/list Arr = [2, 3, 10, -10, 4, 2, 9]  of size, N = 7.
 
 There exist two equilibrium indices, one at 2 and another at 3.
 
-At index 2, the sum of all the elements to the left, [2 + 3] is 5, and the elements to its right, [-10 + 4 + 2 + 9] is also 5. Hence index 2 is an equilibrium index according to the condition we want to achieve. Mind it that we haven't included the item at index 2, which is 10, to either of the parts.
+At index 2, the sum of all the elements to the left, [2 + 3] is 5, and the elements to its right, [-10 + 4 + 2 + 9] is also 5. Hence index 2 is an equilibrium index 
+according to the condition we want to achieve. Mind it that we haven't included the item at index 2, which is 10, to either of the parts.
 
 Similarly, we can see at index 3, the elements to its left sum up to 15 and to the right, sum up to 15 either. 
 
@@ -183,7 +187,9 @@ def findUnique(arr, n) :
 
 Duplicate in array
 Send Feedback
-You have been given an integer array/list(ARR) of size N which contains numbers from 0 to (N - 2). Each number is present at least once. That is, if N = 5, the array/list constitutes values ranging from 0 to 3, and among these, there is a single integer value that is present twice. You need to find and return that duplicate number present in the array.
+You have been given an integer array/list(ARR) of size N which contains numbers from 0 to (N - 2). Each number is present at least once. That is, if N = 5,
+the array/list constitutes values ranging from 0 to 3, and among these, there is a single integer value that is present twice. You need to find and return that 
+duplicate number present in the array.
 Note :
 Duplicate number is always present in the given array/list.
 Input format :
