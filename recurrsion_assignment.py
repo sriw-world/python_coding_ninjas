@@ -31,12 +31,15 @@ def geometric(n):
 
 
 ##############zeros count
+
 def zeros_count(str):
     if len(str) == 0:
         return 0
-    smallOutput = zeros_count(str)
-    if str[len(str)-1] == '0':
-        return (smallOutput + 1)
+    
+    if str[0]=='0':
+        return 1 + zeros_count(str[1:])
+    else:
+        return zeros_count(str[1:])
     
     
 str = input()
