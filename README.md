@@ -13,9 +13,7 @@ This repositry contains solution of all Coding Ninja Python Data Structure Cours
 
 5.Time Complexity
 
-6.LL-1
-
-7.LL-2
+6 and 7.LL-1 and LL-2 (linked list)
 
 8.Stack
 
