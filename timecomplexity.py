@@ -184,6 +184,19 @@ Sample Output 2:
 4
 10
 
+##########XOR works because freq of every other element is 2 and one element freq is 0:
+##########SO xor of even freq element is zero and odd freq element remains same
+
+# 2 4 7 2 7
+
+#  00
+# 100
+# 111
+#  10
+# 111
+# ____
+# 100
+
 
 
 def findUnique(arr, n) :
