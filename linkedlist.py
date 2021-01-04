@@ -30,6 +30,16 @@ def printIthNode(head, i):
     
 # Delete node
 
+
+def length(head) :
+    #Your code goes here
+    ctr = 0
+    while head is not None:
+        ctr = ctr+1
+        head = head.next
+    return ctr
+
+
 def deleteNode(head, pos) :
     curr = head
     prev = None
