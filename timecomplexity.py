@@ -135,6 +135,15 @@ def arrayEquilibriumIndex(arr, n) :
   return -1
 
 
+# 1 case not passing why???
+# def arrayEquilibriumIndex(arr, n) :
+#     #Your code goes here
+    
+#     for i in range(len(arr)-1):
+#         if arr[:i]==arr[i+1:]:
+#             return i
+        
+#     return -1
 
 
 Find the Unique Element
