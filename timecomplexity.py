@@ -324,6 +324,7 @@ def pairSum(arr, n, num) :
                 
                 tempEndIndex -= 1
                 
+	##########count no of similar element
             totalElementsFromStart = (tempStartIndex - startIndex)
             totalElementsFromEnd = (endIndex - tempEndIndex)
             numPair += (totalElementsFromStart * totalElementsFromEnd)
