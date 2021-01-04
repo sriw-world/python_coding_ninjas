@@ -258,6 +258,7 @@ def findDuplicate(arr, n) :
 
 
 Pair sum in array
+You have been given an integer array/list(ARR) and a number 'num'. Find and return the total number of pairs in the array/list which sum to 'num'.
 
 Sample Input 1:
 1
