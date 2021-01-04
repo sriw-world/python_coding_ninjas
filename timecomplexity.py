@@ -464,6 +464,14 @@ reverse(input, n - d, n - 1);
 }
 
 
+def rotate(arr, n, d):
+    #Your code goes here
+    if len(arr)==1 or len(arr)==0:
+        return arr
+    
+    arr = arr[d:]+arr[:d]
+    return arr
+
 
 
 
