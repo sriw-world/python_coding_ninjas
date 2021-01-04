@@ -304,10 +304,15 @@ def pairSum(arr, n, num) :
         else :
             elementAtStart = arr[startIndex]
             elementAtEnd = arr[endIndex]
+		
+	###########for cases 2 2 2 2 2 2 -> nc2 pair (sum 4)
             if elementAtStart == elementAtEnd :
                 totalElementsFromStartToEnd = (endIndex - startIndex) + 1
                 numPair += (totalElementsFromStartToEnd * (totalElementsFromStartToEnd - 1) // 2)
                 return numPair
+	
+	###########for cases 1 3 3 4 5 8 9 9 9 15   (sum 12) -> (3,9) total pair 2*3 = 6
+	
             
             tempStartIndex = startIndex + 1
             tempEndIndex = endIndex - 1
