@@ -252,8 +252,32 @@ def removeDuplicates(head) :
         else:
             t1.next = t2
             t1 = t2
-            t2 = t2.nextPrint
+            t2 = t2.next
             
+		
+########alt code
+
+def removeDuplicates(head) :
+	
+    if  head == None or head.next == None:
+        return head
+    
+    t1 = head
+    t2 = head.next
+    
+    while t2 != None : 
+        if t1.data != t2.data:
+            t2 = t2.next
+	    t1 = t1.next
+            
+        else:
+            while t1.data==t2.data and t2!=None:
+		t2=t2.next
+	   
+            t1.next = t2
+            t1 = t2
+            t2 = t2.next
+
             
             
 Reverse LinkedList
