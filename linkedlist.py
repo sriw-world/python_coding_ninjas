@@ -552,6 +552,35 @@ Sample Output 2 :
 10 20 30 40
 
 
+def evenAfterOdd(head) :
+	headO,tailO = None,None
+	headE,tailE = None,None
+	while head != None:
+		if head.data % 2 != 0 :
+			if headO == None:
+				headO = head
+				tailO = head
+			else:
+				tailO.next = head
+				tailO=tailO.next
+		else:
+			if headE == None:
+				headE = head
+				tailE = head
+			else:
+				tailE.next = head
+				tailE=tailE.next
+		head=head.next
+	if tailO != None:
+		tailO.next = None
+	if tailE != None:
+		tailE.next = None
+	if headO == None:
+		return headE
+	if headO != None:
+		tailO.next = headE
+	return headO
+
 
 
 
