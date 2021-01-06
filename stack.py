@@ -226,17 +226,27 @@ def stockSpan(price, n) :
 	return output
     
     
+
+
+######################alt sol   
+    
+def stockspan(price,n):
+	lst=[]
+	if len(price)>1:
+		lst.append(1)
+
+	for i in range(1,n):
+		j=i-1
+		count=1
+		#######moving backward to count no of price less than crt price
+		while j>-1 and price[i] > price[j]:
+			count+=1
+			j-=1
+		
+		lst.append(count)
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     ###################  Minimum bracket Reversal
 	
