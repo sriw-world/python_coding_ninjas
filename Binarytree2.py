@@ -26,6 +26,21 @@ def removeleaf(root):
     root.left = root.right
     root.right = tmp
     
+    
+    
+    ############alt soln
+    
+def mirrorBinaryTree(root) :
+    
+    if root == None:
+        return None
+    
+    l=mirrorBinaryTree(root.left)
+    r=mirrorBinaryTree(root.right)
+    
+    root.left = r
+    root.right=l
+    return root
 
 ########## Binary Tree Is Balanced
 
