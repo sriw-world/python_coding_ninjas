@@ -30,7 +30,7 @@ def postOrder(root):
     ###########largest node in tree
 def Largest(root):
     if root == None:
-        return
+        return -1
     leftnode = Largest(root.left)
     rightnode = Largest(root.right)
     maximum = max(root.data + leftnode + rightnode)
