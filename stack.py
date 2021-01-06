@@ -201,12 +201,13 @@ Sample Input 2:
 Sample Output 2:
 1 2 3 4 1 1 2 8 
 
-
-Code Pair
-
-Python (3.5)
-1
-
+#Takes a list as a stack and returns whether the stack is empty or not
+def isEmpty(stack) :
+	return len(stack) == 0
+#Takes a list as a stack and returns the element at the top
+def top(stack) :
+#assuming the stack is never empty
+	return stack[len(stack) - 1]
     
 def stockSpan(price, n) :
 	stk = list()
