@@ -114,7 +114,7 @@ def checkRedundantBrackets(expression) :
         else:
             count = 0
 	
-	###while loop is to check this condition () and  (a)
+	###while loop is to check this condition () and  (a) ie count no of elements between '(' and ')'
             while l1[-1] != '(':
                 count += 1
                 l1.pop()
