@@ -328,3 +328,97 @@ if __name__ == '__main__':
     print(countMinReversals(expr.strip()))  ===========> 2 
   
 
+###############alt soln
+  
+  
+  
+def countMinReversals(expr):  
+  
+    lenn = len(expr)  
+  
+    # length of expression must be even  
+    # to make it balanced by using reversals.  
+    if (lenn % 2 != 0) : 
+        return -1
+  
+    # After this loop, stack contains  
+    # unbalanced part of expression,   
+    # i.e., expression of the form "...."  
+    s = []    
+    for i in inputString:  
+        if i == '}' and  len(l1)>0 :
+            if l1[-1]=='{':
+                l1.pop()
+            else:
+                l1.append(i)
+        else:
+            l1.append(i)
+      
+    # Length of the reduced expression  
+    # red_len = (m+n)  
+    red_len = len(s)  
+  
+    # count opening brackets at the  
+    # end of stack  
+    n = 0
+    while len(l1) and l1[-1]=='{':
+        l1.pop()
+        n+=1
+  
+    # return ceil(m/2) + ceil(n/2) which 
+    # is actually equal to (m+n)/2 + n%2  
+    # when m+n is even.  
+    return (red_len // 2 + n % 2)
+
+if __name__ == '__main__':  
+  
+    expr = "}}{{"
+    print(countMinReversals(expr.strip()))  ===========> 2 
+  
+  
+  ###############alt soln
+  
+  def findMinInversions(exp):
+ 
+    # if the expression has odd length, it cannot be balanced
+    if len(exp) % 2:
+        return float('inf')
+ 
+    inversions = 0              # stores total inversions needed
+    open = 0                    # stores total number of opening braces
+ 
+    # traverse the expression
+    for i in range(len(exp)):
+ 
+        # if current character is an opening brace
+        if exp[i] == '{':
+            open = open + 1
+ 
+        # if current character is a closing brace
+        else:
+            # if an opening brace is found before, close it
+            if open:
+                open = open - 1        # decrement opening brace count
+            else:
+                # invert the closing brace i.e. change '}' to '{'
+                inversions = inversions + 1     # increment total inversions needed by 1
+                open = 1                        # increment opening brace count
+ 
+    # for N opened brace, we need exactly N/2 inversions
+    return inversions + open // 2
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
