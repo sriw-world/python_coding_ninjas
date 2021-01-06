@@ -85,7 +85,7 @@ def changeToDepthTree(root,k) :
     else:
         return False
 
-##################  Nodes without sibling
+##################  Nodes without sibling    ie that has only 1 parent
  
 def printNodesWithoutSibling(root) :
     if root == None:
