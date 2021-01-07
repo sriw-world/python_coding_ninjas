@@ -171,6 +171,13 @@ def printLevelWise(root):
 
 ########################Construct Tree Using Inorder and Preorder
 
+Input Format:
+The first line of input contains an integer N denoting the size of the list/array. It can also be said that N is the total number of nodes the binary tree would have.
+
+The second line of input contains N integers, all separated by a single space. It represents the preorder-traversal of the binary tree.
+
+The third line of input contains N integers, all separated by a single space. It represents the inorder-traversal of the binary tree.
+
 # Sample Input 1:
 # 7
 # 1 2 4 5 3 6 7 
@@ -223,6 +230,15 @@ def buildTreePreOrder(preorder, inorder):
 # (b) Preorder (Root, Left, Right) : 1 2 4 5 3
 # (c) Postorder (Left, Right, Root) : 4 5 2 3 1
 
+# Input Format:
+# The first line of input contains an integer N denoting the size of the list/array. It can also be said that N is the total number of nodes the binary tree would have.
+
+# The second line of input contains N integers, all separated by a single space. It represents the Postorder-traversal of the binary tree.
+
+# The third line of input contains N integers, all separated by a single space. It represents the inorder-traversal of the binary tree.
+# Output Format:
+# The given input tree will be printed in a level order fashion where each level will be printed on a new line. 
+# Elements on every level will be printed in a linear fashion. A single space will separate them.
 
 # Sample Input 1:
 # 7
@@ -241,6 +257,7 @@ def buildTreePreOrder(preorder, inorder):
 # 6 10 
 # 2 3 
 # 9 
+
 
 
 def buildTree(postOrder, inOrder, n) :
