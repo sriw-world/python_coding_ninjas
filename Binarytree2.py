@@ -171,6 +171,24 @@ def printLevelWise(root):
 
 ########################Construct Tree Using Inorder and Preorder
 
+# Sample Input 1:
+# 7
+# 1 2 4 5 3 6 7 
+# 4 2 5 1 6 3 7 
+# Sample Output 1:
+# 1 
+# 2 3 
+# 4 5 6 7 
+# Sample Input 2:
+# 6
+# 5 6 2 3 9 10 
+# 2 6 3 9 5 10 
+# Sample Output 2:
+# 5 
+# 6 10 
+# 2 3 
+# 9 
+
 def buildTreePreOrder(preorder, inorder):
     if len(preorder) == 0:
         return None
@@ -204,6 +222,26 @@ def buildTreePreOrder(preorder, inorder):
 # (a) Inorder (Left, Root, Right) : 4 2 5 1 3
 # (b) Preorder (Root, Left, Right) : 1 2 4 5 3
 # (c) Postorder (Left, Right, Root) : 4 5 2 3 1
+
+
+# Sample Input 1:
+# 7
+# 4 5 2 6 7 3 1 
+# 4 2 5 1 6 3 7 
+# Sample Output 1:
+# 1 
+# 2 3 
+# 4 5 6 7 
+# Sample Input 2:
+# 6
+# 2 9 3 6 10 5 
+# 2 6 3 9 5 10 
+# Sample Output 2:
+# 5 
+# 6 10 
+# 2 3 
+# 9 
+
 
 def buildTree(postOrder, inOrder, n) :
     if len(postOrder) == 0 :
