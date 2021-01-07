@@ -209,6 +209,7 @@ def buildTreePreOrder(preorder, inorder):
         if inorder[i] == rootData:
             leftin=inorder[0:i]
             rightin=inorder[i+1:]
+            break
         i += 1
     l= len(leftin)
     ##preorder
