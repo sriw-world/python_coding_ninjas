@@ -196,6 +196,13 @@ The third line of input contains N integers, all separated by a single space. It
 # 2 3 
 # 9 
 
+class BinaryTreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
 def buildTreePreOrder(preorder, inorder):
     if len(preorder) == 0:
         return None
@@ -259,6 +266,11 @@ def buildTreePreOrder(preorder, inorder):
 # 2 3 
 # 9 
 
+class BinaryTreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
 
 
 def buildTree(postOrder, inOrder, n) :
