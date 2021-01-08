@@ -19,10 +19,12 @@ class Graph:
       
     def __str__(self):
       return str(self.adjMatrix)
+
 g = Graph()
 g.addEdge(0,1)
 g.addEdge(0,3)
- 
+
+print(g)   ##############it will print adjency matrix
 
 
 
