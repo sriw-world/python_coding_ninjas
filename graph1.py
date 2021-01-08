@@ -29,6 +29,7 @@ print(g)   ##############it will print adjency matrix
 
 
 DFS  Depth First Search
+
 Downward Print of all nodes
 
 class Graph:
@@ -54,11 +55,14 @@ class Graph:
     def __dfsHelper(self,sv,visited):
       print(sv)
       visited[sv] = True
+      
+      ##########print all vertices in dfs fashion ie all adjency Downward Print of all nodes
       for i in range(self.nVertices):
         if self.adjMatrix[sv][i] > 0 and visited[i] is False:
           self.__dfsHelper(i,visited)
     
     def dfs(self):
+      ############# visited keeps track of all vertices that are visited or not
       visited = [False for i in range(self.nVertices]
       self.__dfsHelper(0,visited)
     
