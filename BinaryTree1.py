@@ -33,7 +33,7 @@ def Largest(root):
         return -1
     leftnode = Largest(root.left)
     rightnode = Largest(root.right)
-    maximum = max(root.data + leftnode + rightnode)
+    maximum = max(root.data , leftnode , rightnode)
     return maximum
     
 
