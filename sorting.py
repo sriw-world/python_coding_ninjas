@@ -50,7 +50,7 @@ for i in range(len(arr)):
     
     
     
-    ##########Insertion Sort
+    ##########Selection Sort
 arr[] = 64 25 12 22 11
 
 // Find the minimum element in arr[0...4]
