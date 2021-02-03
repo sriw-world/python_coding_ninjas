@@ -16,7 +16,7 @@ def printtree(root):
     return
   print(root.data,":",end="")
   for child in root.children:  
-    printtree(child.data,",",end="")
+    print(child.data,",",end="")
    
    print()
   #####if no child no execution of for loop so no base case reqd
