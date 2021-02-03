@@ -327,3 +327,18 @@ def nextLargest(tree, n):
       if (not ans) or ans.data > temp.data:
         ans = temp
   return ans
+
+
+#### alt soon
+
+def nextLargest(tree, n):
+  ans = 0
+  if tree== None:
+    return ans
+  if tree.data > n:
+    ans = tree
+  for child in tree.children:
+    ans = min(ans,nextLargest(child, n))
+  
+  return ans
+
