@@ -199,31 +199,33 @@ class BST:
         if root == None:
             return False,None
         
-        if root.data>data :
+        elif root.data>data :
             deleted,newleftnode = self.deleteHelper(root.left,data)
             root.left =  newleftnode
             return deleted,root
-        if root.data<data:
+        elif root.data<data:
             deleted,newrightnode = self.deleteHelper(root,data)
             root.right =  newrightnode
             return deleted,root
         
-        #root is leaf
-        if root.left==None and root.right == None:
+        else:
+          #root is leaf
+          if root.left==None and root.right == None:
             return True,None
         
-        # root has 1 child
-        if root.left==None:
+          # root has 1 child
+          if root.left==None:
             return True,root.right
         
-        if root.right==None:
+          if root.right==None:
             return True,root.left
         
-        replacement = self.min(root.right)
-        root.data = replacement
-        deleted , newRightNode = self.deleteHelper(root.right,replacement)
-        root.right = newRightNode
-        return True , root
+          replacement = self.min(root.right)
+          root.data = replacement
+# now remove the replacement node
+          deleted , newRightNode = self.deleteHelper(root.right,replacement)
+          root.right = newRightNode
+          return True , root
     
 
             
