@@ -95,6 +95,8 @@ def pairSum0(l):
             
             d[i],d[-i]=0,0
             
+            
+            
 In computer science, a Hash table or a Hashmap is a type of data structure that maps keys to its value pairs (implement abstract array data types). It basically makes use of a function that computes an index value that in turn holds the elements to be searched, inserted, removed, etc. This makes it easy and fast to access data. In general, hash tables store key-value pairs and the key is generated using a hash function.
             
 ################### How to insert in Map
